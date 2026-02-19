@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Act Blootstellingsclassificatie Protocol - Evalueer uw regelgevingsrisiconiveau.">
+    <title>AI Act Protocol - Regelgevingsrisico Evaluatie | Homieux Media</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="https://homieuxmedia.com" target="_blank" rel="noopener noreferrer" class="logo-link" aria-label="Homieux Media - Terug naar hoofdwebsite">
+                <img src="logo-homieux.png" alt="Homieux Media Logo" class="logo">
+            </a>
+            <nav class="language-nav" aria-label="Taalkeuze">
+                <span class="current-lang">NL</span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="hero-section">
+                <h1>AI Act Blootstellingsclassificatie Protocol™</h1>
+                <p class="subtitle">Structureer uw nalevingsrisico en optimaliseer uw governance framework.</p>
+                <div class="compliance-badge">
+                    <span class="badge-icon">✓</span>
+                    <span>GDPR & EU AI Act Compliant</span>
+                </div>
+            </div>
+
+            <div class="progress-container" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" aria-label="Voortgang evaluatie">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Profiel</div>
+                </div>
+                <div class="progress-bar-segment"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Diensten</div>
+                </div>
+                <div class="progress-bar-segment"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">AI Gebruik</div>
+                </div>
+                <div class="progress-bar-segment"></div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Resultaat</div>
+                </div>
+            </div>
+
+            <section class="assessment-step active" id="step-1" aria-labelledby="step1-title">
+                <div class="step-header">
+                    <h2 id="step1-title">Organisatieprofiel</h2>
+                    <p class="step-description">Basisgegevens voor risicoclassificatie.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="firm-size" class="form-label">Organisatiegrootte</label>
+                    <select id="firm-size" class="form-select" required aria-required="true">
+                        <option value="" disabled selected>Selecteer optie</option>
+                        <option value="small">Minder dan 50 medewerkers (KMO)</option>
+                        <option value="medium">50 tot 250 medewerkers</option>
+                        <option value="large">Meer dan 250 medewerkers</option>
+                    </select>
+                    <p class="form-help">AI Act hanteert verschillende verplichtingen per bedrijfsgrootte.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Hoofdsector</label>
+                    <div class="radio-group" role="radiogroup" aria-required="true">
+                        <label class="radio-card">
+                            <input type="radio" name="sector" value="legal" required>
+                            <span class="radio-content">
+                                <strong>Advocaat / Notaris</strong>
+                                <span class="radio-desc">Juridische dienstverlening</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="sector" value="accounting" required>
+                            <span class="radio-content">
+                                <strong>Accountant / Bedrijfsrevisor</strong>
+                                <span class="radio-desc">Financiële en boekhoudkundige diensten</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="sector" value="consulting" required>
+                            <span class="radio-content">
+                                <strong>Consultancy / Advies</strong>
+                                <span class="radio-desc">Strategisch advies</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="sector" value="other" required>
+                            <span class="radio-content">
+                                <strong>Overige gereguleerde sector</strong>
+                                <span class="radio-desc">Andere professionele activiteit</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" onclick="nextStep(1)" aria-label="Ga naar volgende stap">
+                        Volgende
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="assessment-step" id="step-2" aria-labelledby="step2-title" hidden>
+                <div class="step-header">
+                    <h2 id="step2-title">Dienstverlening</h2>
+                    <p class="step-description">Selecteer diensten met AI-component.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">AI-toepassingen <span class="label-hint">(Meerdere selecties mogelijk)</span></label>
+                    <div class="checkbox-group" role="group" aria-label="Diensten">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="services" value="client-screening">
+                            <span class="checkbox-content">
+                                <strong>Cliënt screening & KYC</strong>
+                                <span class="checkbox-desc">Automatische achtergrondcontroles</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="services" value="document-analysis">
+                            <span class="checkbox-content">
+                                <strong>Documentanalyse</strong>
+                                <span class="checkbox-desc">Geautomatiseerde contractreview</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="services" value="risk-assessment">
+                            <span class="checkbox-content">
+                                <strong>Risicobeoordeling cliënten</strong>
+                                <span class="checkbox-desc">Financiële of juridische risicoscores</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="services" value="biometric">
+                            <span class="checkbox-content">
+                                <strong>Biometrie & herkenning</strong>
+                                <span class="checkbox-desc">Vingerafdruk, gezichts-, stemherkenning</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="services" value="automated-decision">
+                            <span class="checkbox-content">
+                                <strong>Geautomatiseerde besluitvorming</strong>
+                                <span class="checkbox-desc">Beslissingen zonder menselijke tussenkomst</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="services" value="content-generation">
+                            <span class="checkbox-content">
+                                <strong>Content generatie</strong>
+                                <span class="checkbox-desc">AI-ondersteunde tekstproductie</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(2)" aria-label="Terug naar vorige stap">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Terug
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)" aria-label="Ga naar volgende stap">
+                        Volgende
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="assessment-step" id="step-3" aria-labelledby="step3-title" hidden>
+                <div class="step-header">
+                    <h2 id="step3-title">AI Systeem Specificatie</h2>
+                    <p class="step-description">Technische classificatie van uw AI-systemen.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Type AI-systemen</label>
+                    <div class="radio-group" role="radiogroup" aria-required="true">
+                        <label class="radio-card">
+                            <input type="radio" name="ai-type" value="general" required>
+                            <span class="radio-content">
+                                <strong>General purpose AI (GPT, Copilot)</strong>
+                                <span class="radio-desc">Generieke productiviteitstools</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="ai-type" value="specialized" required>
+                            <span class="radio-content">
+                                <strong>Gespecialiseerde bedrijfs-AI</strong>
+                                <span class="radio-desc">Branche-specifieke oplossingen</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="ai-type" value="prohibited" required>
+                            <span class="radio-content">
+                                <strong>Hoog-risico systemen geïdentificeerd</strong>
+                                <span class="radio-desc">Biometrie, social scoring, manipulatie</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="ai-type" value="none" required>
+                            <span class="radio-content">
+                                <strong>Geen huidig AI-gebruik</strong>
+                                <span class="radio-desc">Preventieve evaluatie</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Autonomieniveau</label>
+                    <div class="radio-group" role="radiogroup" aria-required="true">
+                        <label class="radio-card">
+                            <input type="radio" name="autonomy" value="assist" required>
+                            <span class="radio-content">
+                                <strong>Enkel menselijke assistentie</strong>
+                                <span class="radio-desc">Mens behoudt volledige controle</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="autonomy" value="recommend" required>
+                            <span class="radio-content">
+                                <strong>Aanbeveling met validatie</strong>
+                                <span class="radio-desc">AI adviseert, mens beslist</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="autonomy" value="automated" required>
+                            <span class="radio-content">
+                                <strong>Substantieel geautomatiseerd</strong>
+                                <span class="radio-desc">Significante impact op partijen</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(3)" aria-label="Terug naar vorige stap">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M13 8H3M3 8L7 4M3 8L7 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Terug
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="calculateRisk()" aria-label="Bereken risiconiveau">
+                        Genereer classificatie
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M8 3V13M3 8H13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <section class="assessment-step" id="step-4" aria-labelledby="step4-title" hidden>
+                <div class="results-container">
+                    <div class="risk-badge" id="risk-badge" role="status" aria-live="polite">
+                        <span class="risk-level" id="risk-level">Classificatie wordt berekend...</span>
+                        <span class="risk-category" id="risk-category"></span>
+                    </div>
+
+                    <div class="results-content">
+                        <div class="result-section legal-meaning">
+                            <h3>Juridische classificatie</h3>
+                            <p id="legal-meaning-text"></p>
+                        </div>
+
+                        <div class="result-section obligations">
+                            <h3>Compliance verplichtingen</h3>
+                            <ul id="obligations-list" class="obligations-list"></ul>
+                        </div>
+
+                        <div class="result-section timeline">
+                            <h3>Implementatietermijn</h3>
+                            <div class="timeline-alert">
+                                <div class="timeline-icon">📅</div>
+                                <div class="timeline-content">
+                                    <p class="timeline-date">2 augustus 2026</p>
+                                    <p class="timeline-desc">Inwerkingtreding handhavingsmechanisme</p>
+                                    <p class="timeline-countdown" id="countdown"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="result-section governance">
+                            <h3>Governance impact</h3>
+                            <p id="governance-text"></p>
+                        </div>
+
+                        <div class="result-section strategic">
+                            <h3>Strategische implicaties</h3>
+                            <p id="strategic-text"></p>
+                        </div>
+                    </div>
+
+                    <div class="cta-section">
+                        <h3>Optimaliseer uw compliance structuur</h3>
+                        <p>Plan een vrijblijvend consult om uw implementatieplan te bespreken.</p>
+                        <a href="https://calendly.com/homieuxmedia/discovery-call-gratuit-discutons-de-vos-defis" target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-large" aria-label="Plan een kennismakingsgesprek">
+                            Plan kennismakingsgesprek
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M4.167 10h11.666m0 0L10 4.167M15.833 10L10 15.833" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <p class="cta-note">30-minuten, vertrouwelijk, geen verplichtingen</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="resetAssessment()" aria-label="Start nieuwe evaluatie">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M2 8a6 6 0 0110.24-4.24M14 8a6 6 0 01-10.24 4.24M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Nieuwe evaluatie
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-legal">
+                    <p class="copyright">© 2026 Homieux Media</p>
+                    <p class="legal-notice">Preliminaire evaluatietool. Geen juridisch advies.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://homieuxmedia.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>
+                    <a href="https://homieuxmedia.com/terms" target="_blank" rel="noopener noreferrer">Voorwaarden</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
