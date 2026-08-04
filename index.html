@@ -11,6 +11,100 @@
     <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+
+    <!-- [MODIFICATION] Mobile-first UI/UX engineering: Preventing horizontal overflow and optimizing interaction on narrow viewports (320px-480px) -->
+    <style>
+        /* Global box-sizing and overflow control */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        @media screen and (max-width: 480px) {
+            .container {
+                width: 100%;
+                max-width: 100vw;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Responsive typography for long headings */
+            .hero-section h1, .step-header h2 {
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+
+            /* Wrap compliance badge elements gracefully */
+            .compliance-badge {
+                display: inline-flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+                gap: 0.5rem;
+                height: auto;
+                padding: 0.75rem;
+            }
+
+            /* Step indicator optimization: allow wrapping and remove rigid separators */
+            .progress-container {
+                flex-wrap: wrap;
+                row-gap: 1rem;
+                justify-content: center;
+            }
+            .progress-bar-segment {
+                display: none;
+            }
+
+            /* Cards layout constraint to prevent overflow */
+            .radio-group, .checkbox-group {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .radio-card, .checkbox-card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            /* Button architecture: Stack buttons with primary action accessible on top */
+            .form-actions {
+                display: flex;
+                flex-direction: column-reverse;
+                gap: 1rem;
+                width: 100%;
+            }
+            .form-actions .btn, .cta-section .btn-large {
+                width: 100%;
+                max-width: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                white-space: normal;
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            /* Structural fix for timeline elements */
+            .timeline-alert {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+            .timeline-content {
+                width: 100%;
+                max-width: 100%;
+            }
+            .timeline-icon {
+                margin: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="site-header">
@@ -31,7 +125,8 @@
                 <p class="subtitle">Structureer uw nalevingsrisico en optimaliseer uw governance framework.</p>
                 <div class="compliance-badge">
                     <span class="badge-icon">✓</span>
-                    <span>GDPR & EU AI Act Compliant</span>
+                    <!-- [MODIFICATION] Reformulated badge to avoid contradiction with the disclaimer in the footer -->
+                    <span>Gealigneerd met GDPR & EU AI Act principes</span>
                 </div>
             </div>
 
@@ -67,8 +162,8 @@
                     <label for="firm-size" class="form-label">Organisatiegrootte</label>
                     <select id="firm-size" class="form-select" required aria-required="true">
                         <option value="" disabled selected>Selecteer optie</option>
-                        <option value="small">Minder dan 50 medewerkers (KMO)</option>
-                        <option value="medium">50 tot 250 medewerkers</option>
+                        <!-- [MODIFICATION] Corrected SME definition per EU Recommendation 2003/361/EC, merging small & medium -->
+                        <option value="sme">Minder dan 250 medewerkers (KMO — inclusief kleine en middelgrote ondernemingen volgens EU-Aanbeveling 2003/361/EG)</option>
                         <option value="large">Meer dan 250 medewerkers</option>
                     </select>
                     <p class="form-help">AI Act hanteert verschillende verplichtingen per bedrijfsgrootte.</p>
@@ -211,11 +306,19 @@
                                 <span class="radio-desc">Branche-specifieke oplossingen</span>
                             </span>
                         </label>
+                        <!-- [MODIFICATION] Split "Prohibited or High-Risk" into two legally distinct and incompatible regimes -->
+                        <label class="radio-card">
+                            <input type="radio" name="ai-type" value="high-risk" required>
+                            <span class="radio-content">
+                                <strong>Hoog-risico AI-systemen (Bijlage III)</strong>
+                                <span class="radio-desc">Biometrie, kritieke infrastructuur, werkgelegenheid</span>
+                            </span>
+                        </label>
                         <label class="radio-card">
                             <input type="radio" name="ai-type" value="prohibited" required>
                             <span class="radio-content">
-                                <strong>Hoog-risico systemen geïdentificeerd</strong>
-                                <span class="radio-desc">Biometrie, social scoring, manipulatie</span>
+                                <strong>Verboden AI-praktijken (Artikel 5)</strong>
+                                <span class="radio-desc">Social scoring, manipulatie, real-time biometrie op afstand</span>
                             </span>
                         </label>
                         <label class="radio-card">
@@ -291,11 +394,19 @@
 
                         <div class="result-section timeline">
                             <h3>Implementatietermijn</h3>
-                            <div class="timeline-alert">
+                            <!-- [MODIFICATION] Separated deadlines to accurately reflect the legal delay for Annex III systems vs Article 50 -->
+                            <div class="timeline-alert" style="margin-bottom: 1rem;">
                                 <div class="timeline-icon">📅</div>
                                 <div class="timeline-content">
                                     <p class="timeline-date">2 augustus 2026</p>
-                                    <p class="timeline-desc">Inwerkingtreding handhavingsmechanisme</p>
+                                    <p class="timeline-desc">Transparantieverplichtingen (Artikel 50)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-alert">
+                                <div class="timeline-icon">📅</div>
+                                <div class="timeline-content">
+                                    <p class="timeline-date">2 december 2027</p>
+                                    <p class="timeline-desc">Hoog-risico Bijlage III verplichtingen (Artikelen 9-15)</p>
                                     <p class="timeline-countdown" id="countdown"></p>
                                 </div>
                             </div>
